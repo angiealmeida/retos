@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Reto 3 Grupo 34 Grupo 8</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/c9535de11b.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <style media="screen">
+            @media (max-width: 30em){
+          table{
+            width: 100%;
+            font-size: .9em;
+            border:none;
+          }
+          td,th{
+            border:none;
+          }
+          table td[data-titulo]{
+            display: flex;
+          
+          }
+          
+            table td[data-titulo]::before{
+              content: attr(data-titulo);
+              width: 50px;
+              font-style:italic;
+              color: silver;
+              font-weight: bold;
+            }
+          
+          table tr{
+            display: flex;
+            flex-direction: column;
+            border: 1px solid grey;
+            padding: 1em;
+            margin-bottom: 1em;
+          }
+          table thead{
+            display: none;
+          }
+          
+          table tfoot{
+            display: none;
+          }
+          
+          }
+            </style>
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-light" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light">Reto 3 4 5<br>Grupo 34<br>Grupo 8</div>
+                <div class="list-group list-group-flush">
+                  <a class="list-group-item list-group-item-action list-group-item-light p-3" href="javascript:agregarCategoria()">Crear Categoria</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="javascript:agregarMotos()">Crear Motocicleta</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="javascript:agregarClientes()">Registrar Cliente</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="javascript:agregarMensajes()">Registrar Mensaje</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="javascript:agregarReserva()">Registrar Reserva</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="javascript:agregarInforme()">Informes</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="javascript:agregarAdmin()">Administradores</a>
+                    <!--<a class="list-group-item list-group-item-action list-group-item-light p-3" href="javascript:restGet('/ords/admin/message/message')">Mensajes</a> -->
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="javascript:mostrarEquipo()">Equipo de trabajo</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle">Menu</button>
+                    </div>
+					<div class="container-fluid">
+                        <button onClick="logout()" class="btn btn-primary" id="sidebarToggle">Salir</button>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div class="container-fluid" id="contenedor">
+                    <!-- inicio diseño -->
+                    
+
+                  <!-- fin diseño -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <!-- modal -->
+        <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Actualizar</h5>
+                    <button type="button" class="close"  onclick="cerrarm()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    <div id="actualizar">
+                 
+
+                    </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    </div>
+                </div>
+                </div>
+            </div>
+        <!-- fin modal -->
+        <script src="js/scripts.js"></script>
+        <script src="js/functions.js"></script>
+        <script>
+		var logout = function() {
+            $.post("/logout", function() {
+              window.open('index.html','_self');
+            })
+            return true;
+          }
+          function prueba(){
+            cargarselect("/Motorbike/all","motorbike")
+            window.setTimeout(500);
+            cargarselect("/Client/all","client")
+          }
+        </script>
+    </body>
+</html>
